@@ -1,0 +1,24 @@
+// UI helpers: section tabs, collapsible birth form, remembered inputs, theme toggle, print.
+const TABS=[['sum','Summary'],['analysis','Analysis'],['bphs','BPHS Guide'],['jaimini','Jaimini'],['chart','Charts'],['dasha','Dasha'],['chakra','Chakras'],['more','More'],['match','Matching'],['data','Data']];
+const ST={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+[['Summary','সাৰাংশ','সারাংশ','सारांश'],['Charts','চাৰ্ট','চার্ট','चार्ट'],['Dasha','দশা','দশা','दशा'],['Chakras','চক্ৰ','চক্র','चक्र'],['More','অধিক','আরও','और'],['Matching','মিলান','মিলন','मिलान'],['Data','তথ্য','তথ্য','डेटा'],
+ ['Birth details','জন্মৰ বিৱৰণ','জন্মের বিবরণ','जन्म विवरण'],['Use current time','এতিয়াৰ সময় ব্যৱহাৰ কৰক','এখনকার সময় ব্যবহার করুন','वर्तमान समय लें'],['Coordinates and place database','অক্ষাংশ-দ্ৰাঘিমাংশ আৰু স্থানৰ তালিকা','অক্ষাংশ-দ্রাঘিমাংশ ও স্থানের তালিকা','निर्देशांक और स्थान सूची'],
+ ['Print / save PDF','প্ৰিণ্ট / PDF','প্রিন্ট / PDF','प्रिंट / PDF'],['Edit','সলনি কৰক','বদলান','बदलें'],['Analysis','বিশ্লেষণ','বিশ্লেষণ','विश्लेषण'],['BPHS Guide','BPHS পুথিভঁৰাল','BPHS গ্রন্থাগার','BPHS मार्गदर्शिका'],['Jaimini','জৈমিনী','জৈমিনী','जैमिनि'],['Jaimini tools','জৈমিনী সঁজুলি','জৈমিনী সরঞ্জাম','जैमिनि उपकरण'],['Sudarshana Chakra','সুদৰ্শন চক্ৰ','সুদর্শন চক্র','सुदर्शन चक्र'],['Chara Karakas & Karakamsa','চৰ কাৰক আৰু কাৰকাংশ','চর কারক ও কারকাংশ','चर कारक और कारकांश'],['Bhava Padas · Arudha','ভাব পদ · অৰুঢ়','ভাব পদ · অরূঢ়','भाव पद · अरूढ़'],['Argala / Virodhargala','অৰ্গলা / বিৰোধাৰ্গলা','অর্গলা / বিরোধার্গলা','अर्गला / विरोधार्गला'],['Jaimini Chara Dasha','জৈমিনী চৰ দশা','জৈমিনী চর দশা','जैमिनि चर दशा'],['Karakamsa','কাৰকাংশ','কারকাংশ','कारकांश'],['Inner · Lagna','ভিতৰৰ · লগ্ন','ভিতরের · লগ্ন','भीतर · लग्न'],['Middle · Moon','মাজৰ · চন্দ্ৰ','মাঝের · চন্দ্র','मध्य · चन्द्र'],['Outer · Sun','বাহিৰৰ · ৰবি','बाहरी · रवि','बाहरी · सूर्य'],['Swipe horizontally to view all columns.','সকলো স্তম্ভ চাবলৈ কাষলৈ ছুইপ কৰক।','সব কলাম দেখতে আড়াআড়িভাবে সোয়াইপ করুন।','सभी स्तंभ देखने के लिए क्षैतिज रूप से स्वाइप करें।']].forEach(p=>{if(!D[p[0]])D[p[0]]=[p[1],p[2],p[3]]});
+let TAB=ST.get('jk_tab')||'sum';if(!TABS.some(t=>t[0]==TAB))TAB='sum';
+function buildTabs(){const tb=document.getElementById('tb');if(!tb)return;
+ tb.innerHTML=TABS.map(t=>`<button role="tab" type="button" data-k="${t[0]}" aria-selected="${t[0]==TAB}">${tx(t[1])}</button>`).join('')+`<button type="button" class="pr-btn" onclick="window.print()">⎙ ${tx('Print / save PDF')}</button>`;
+ tb.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>setTab(b.dataset.k));document.body.dataset.tab=TAB}
+function setTab(t){TAB=t;ST.set('jk_tab',t);buildTabs();const tb=document.getElementById('tb');
+ const y=tb.getBoundingClientRect().top+window.scrollY-(document.querySelector('.top')||{offsetHeight:0}).offsetHeight-4;if(window.scrollY>y)window.scrollTo({top:y});
+ const a=tb.querySelector('[aria-selected="true"]');if(a&&a.scrollIntoView)a.scrollIntoView({block:'nearest',inline:'center'})}
+function fsum(){const v=document.getElementById('dt').value.replace('T',' · '),pl=document.getElementById('ps').value||(document.getElementById('la').value+', '+document.getElementById('lo').value);
+ document.getElementById('fs').textContent=v?`${v} · ${pl}`:'';
+ ['dt','ps','la','lo','tz'].forEach(i=>ST.set('jk_'+i,document.getElementById(i).value))}
+function restoreIn(){['dt','ps','la','lo','tz'].forEach(i=>{const v=ST.get('jk_'+i);if(v)document.getElementById(i).value=v})}
+function closeForm(){const f=document.getElementById('fd');if(f&&window.innerWidth<900)f.open=false}
+document.getElementById('fd').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'&&e.target.type!=='file'){if(e.target.id==='ps'&&document.getElementById('pr').firstElementChild){e.preventDefault();document.getElementById('pr').firstElementChild.focus();return}e.preventDefault();document.getElementById('go').click()}});
+document.getElementById('nw').onclick=()=>{const d=new Date(),p=x=>String(x).padStart(2,'0');document.getElementById('dt').value=`${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}`};
+(function theme(){const r=document.documentElement,t=ST.get('jk_theme'),b=document.getElementById('th');if(t)r.dataset.theme=t;
+ const darkNow=()=>r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches,paint=()=>{b.textContent=darkNow()?'☼':'☾'};paint();b.onclick=()=>{r.dataset.theme=darkNow()?'light':'dark';ST.set('jk_theme',r.dataset.theme);paint()}})();
+
+function hh(){const t=document.querySelector('.top');if(t)document.documentElement.style.setProperty('--th',t.offsetHeight+'px')}addEventListener('resize',hh);addEventListener('load',hh);hh();
