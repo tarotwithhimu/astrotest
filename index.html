@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Free Vedic kundli in Assamese, Bengali, Hindi and English with birth chart, dasha, panchang, matching, BPHS guide, Pataki vedha map, Ashtakavarga reductions and Jaimini tools.">
+  <meta name="theme-color" content="#fbf8f2">
+  <title>Jyotish Kundli</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23a94d27'%3E%3Cpath d='M18 4.5c2.9 4 3.1 7.4 0 10.2-3.1-2.8-2.9-6.2 0-10.2Z'/%3E%3Cpath d='M18 31.5c-2.9-4-3.1-7.4 0-10.2 3.1 2.8 2.9 6.2 0 10.2Z'/%3E%3Cpath d='M4.5 18c4-2.9 7.4-3.1 10.2 0-2.8 3.1-6.2 2.9-10.2 0Z'/%3E%3Cpath d='M31.5 18c-4 2.9-7.4 3.1-10.2 0 2.8-3.1 6.2-2.9 10.2 0Z'/%3E%3Ccircle cx='18' cy='18' r='3.1'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css?v=16">
+</head>
+<body data-tab="sum">
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Jyotish Kundli home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none"><path d="M18 4.5c2.9 4 3.1 7.4 0 10.2-3.1-2.8-2.9-6.2 0-10.2Z"/><path d="M18 31.5c-2.9-4-3.1-7.4 0-10.2 3.1 2.8 2.9 6.2 0 10.2Z"/><path d="M4.5 18c4-2.9 7.4-3.1 10.2 0-2.8 3.1-6.2 2.9-10.2 0Z"/><path d="M31.5 18c-4 2.9-7.4 3.1-10.2 0 2.8-3.1 6.2-2.9 10.2 0Z"/><circle cx="18" cy="18" r="3.1"/></svg>
+        </span>
+        <span class="brand-name" data-i="Jyotish Kundli">Jyotish Kundli</span>
+      </a>
+      <div class="ctl" aria-label="Display preferences">
+        <div class="pref"><label for="lg" data-i="Language">Language</label><select id="lg"></select></div>
+        <div class="pref style-pref"><label for="cs" data-i="Chart style">Chart style</label><select id="cs"><option value="e" data-i="East Indian (Assam / Bengal / Odisha)">East Indian (Assam / Bengal / Odisha)</option><option value="n" data-i="North Indian">North Indian</option><option value="s" data-i="South Indian">South Indian</option></select></div>
+        <button id="th" class="ghost icon" type="button" aria-label="Light or dark theme" title="Light / dark">☼</button>
+      </div>
+    </div>
+  </header>
+
+  <noscript><p style="padding:24px;text-align:center;font-family:sans-serif">This kundli app needs JavaScript to calculate charts. Please enable JavaScript and reload.</p></noscript>
+  <main id="top">
+    <div class="intro">
+      <p class="eyebrow">Vedic astrology · Lahiri ayanamsha</p>
+      <p class="sub" data-i="Sidereal (Lahiri) birth chart, panchang and Vimshottari dasha.">Sidereal (Lahiri) birth chart, panchang and Vimshottari dasha.</p>
+    </div>
+
+    <details class="card birth-card" id="fd" open>
+      <summary>
+        <span class="summary-title"><span class="step">01</span><span data-i="Birth details">Birth details</span></span>
+        <span id="fs" class="fs"></span>
+      </summary>
+      <div class="f birth-fields">
+        <div class="date-field">
+          <label for="dt" data-i="Date & time of birth">Date &amp; time of birth</label>
+          <input id="dt" type="datetime-local" value="2020-09-13T19:20">
+          <button id="nw" class="ghost sm" type="button" data-i="Use current time">Use current time</button>
+        </div>
+        <div class="place-field">
+          <label for="ps" data-i="Search place">Search place</label>
+          <input id="ps" data-ph="Type a city name…" placeholder="Type a city name…" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="pr">
+          <div id="pr" class="pr" role="listbox" aria-label="Place suggestions"></div>
+        </div>
+      </div>
+      <details class="adv">
+        <summary data-i="Coordinates and place database">Coordinates and place database</summary>
+        <div class="f advanced-fields">
+          <div><label for="la" data-i="Latitude (N+)">Latitude (N+)</label><input id="la" type="number" step="any"></div>
+          <div><label for="lo" data-i="Longitude (E+)">Longitude (E+)</label><input id="lo" type="number" step="any"></div>
+          <div><label for="tz" data-i="UTC offset (hours)">UTC offset (hours)</label><input id="tz" type="number" step="0.25"></div>
+          <div class="import-field"><label for="pf" data-i="Import your own place database (CSV or JSON with name, lat, lon, tz)">Import your own place database (CSV or JSON with name, lat, lon, tz)</label><input id="pf" type="file" accept=".csv,.json,.txt"><small id="pc"></small></div>
+        </div>
+      </details>
+      <button id="go" class="wide" data-i="Generate Kundli">Generate Kundli</button>
+    </details>
+
+    <nav id="tb" class="tabs" role="tablist" aria-label="Sections"></nav>
+    <div id="out" aria-live="polite"></div>
+
+    <section class="card sc data-card" data-t="data">
+      <h2 data-i="Ephemeris browser">Ephemeris browser</h2>
+      <label for="ev" data-i="Date (1930-01-01 to 2061-01-09)">Date (1930-01-01 to 2061-01-09)</label>
+      <input id="ev" type="date" min="1930-01-01" max="2061-01-09" value="2020-09-13"><div id="eo"></div>
+    </section>
+    <section class="card sc data-card" data-t="data">
+      <h2 data-i="Panchang browser (Gauhati)">Panchang browser (Gauhati)</h2>
+      <label for="pv" data-i="Date (1930-01-01 to 2041-02-01)">Date (1930-01-01 to 2041-02-01)</label>
+      <input id="pv" type="date" min="1930-01-01" max="2041-02-01" value="2020-09-13"><div id="po"></div>
+    </section>
+    <section class="card match-card" data-t="match">
+      <div class="section-heading"><span class="step">07</span><div><h2 data-i="Kundli matching (Ashtakoota)">Kundli matching (Ashtakoota)</h2></div></div>
+      <div class="f"><div><label for="dt2" data-i="Bride date & time of birth">Bride date &amp; time of birth</label><input id="dt2" type="datetime-local" value="1992-05-14T08:30"></div><div><label for="tz2" data-i="Bride UTC offset">Bride UTC offset</label><input id="tz2" type="number" step="0.25" value="5.5"></div></div>
+      <button id="mt" data-i="Match (chart above = groom)">Match (chart above = groom)</button><div id="mr" class="sc"></div>
+    </section>
+    <p class="footnote" data-i="Positions come from the supplied daily ephemeris table (1930-2061, cubic interpolation); outside that range compact formulas (about 0.1-0.5°) are used.">Positions come from the supplied daily ephemeris table (1930-2061, cubic interpolation); outside that range compact formulas (about 0.1-0.5&deg;) are used.</p>
+  </main>
+
+  <script src="js/i18n.js?v=16"></script>
+  <script src="js/ephemeris.js"></script>
+  <script src="js/panchang.js"></script>
+  <script src="js/ashtaka.js?v=16"></script>
+  <script src="js/yoga.js?v=16"></script>
+  <script src="js/chart.js?v=16"></script>
+  <script src="js/chakra.js?v=16"></script>
+  <script src="js/dasha.js?v=16"></script>
+  <script src="js/ui.js?v=16"></script>
+  <script src="js/bphs.js?v=16"></script>
+  <script src="js/jaimini.js?v=16"></script>
+  <script src="js/app.js?v=16"></script>
+  <script src="js/i18n-as.js?v=16"></script>
+</body>
+</html>
