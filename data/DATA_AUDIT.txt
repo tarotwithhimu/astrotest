@@ -1,0 +1,24 @@
+source rows 47857 | csv rows 47857 | source columns 49
+PASS dates contiguous 1930-01-01..2061-01-09        mismatches: 0
+PASS Id column sequential                           mismatches: 0
+PASS no blank or non-numeric cells                  mismatches: 0
+PASS sun deg:min:sec (in-sign, exact arcsec)        mismatches: 0
+PASS moon deg:min:sec (in-sign, exact arcsec)       mismatches: 0
+PASS mars deg:min:sec (in-sign, exact arcsec)       mismatches: 0
+PASS mercury deg:min:sec (in-sign, exact arcsec)    mismatches: 0
+PASS venus deg:min:sec (in-sign, exact arcsec)      mismatches: 0
+PASS jupiter sign + deg:min:sec                     mismatches: 0
+PASS saturn min:sec, sign column                    mismatches: 0
+PASS rahu sign + deg:min:sec                        mismatches: 0
+PASS ketu sign + deg:min:sec                        mismatches: 0
+PASS ayanamsa                                       mismatches: 0
+PASS sunrise, sunset                                mismatches: 0
+PASS moon daily motion (81:82)                      mismatches: 0
+PASS Textbox10Other                                 mismatches: 0
+PASS Textbox41-49 lord digits                       mismatches: 0
+PASS lord digits vs table longitudes (excl. <=1.5" at boundary) mismatches: 0
+PASS Ketu = Rahu + 180                              mismatches: 0
+typo scan, max hold-out residual (deg): {'Sun': 0.0003, 'Mars': 0.0007, 'Mercury': 0.0017, 'Jupiter': 0.0009, 'Venus': 0.0005, 'Saturn': 0.0006}
+PASS no typo-sized jump (> 0.02 deg) in those six   mismatches: 0
+rolled minutes (60) in source, kept numerically (<=2 arcsec effect): 220
+RESULT: ALL CHECKS PASSED

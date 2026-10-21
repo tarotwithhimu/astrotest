@@ -1,0 +1,23 @@
+raw export: rows 47857 columns 44
+PASS dated row count (year files vs raw)                        mismatches: 0 
+PASS all 32 varying columns, every dated row, cell for cell     mismatches: 0 
+PASS 12 constant columns match every dated row                  mismatches: 0 
+PASS blank rows (1893) carry no data beyond Set/Recnum/ID/flag  mismatches: 0 
+PASS dates ascending, 1930-01-01 .. 2041-02-01                  mismatches: 0 
+PASS Dinamana = (sunset - sunrise) in ghati, within 1 vipala    mismatches: 0 
+info  Vikram year (TextBox38) changes in months {3: 64, 4: 47} | Kartika-based (TextBox35) changes in months {11: 60, 10: 51}
+info  Vikram - Shaka = [135] [135]
+info  moonrise/moonset shown as "-----" on 1512 / 1533 days
+info  ayanamsha as printed (TextBox22): ['22:52:35', '23:44:01', '24:00:49']
+info  TextBox41 counts: {'0': 44454, '1': 1476, '2': 34}
+info  TextBox4: 27 distinct texts, name agreement with computed values 96.30% | ambiguous texts: ['um^']
+info  TextBox10: 11 distinct texts, name agreement with computed values 99.98% | ambiguous texts: []
+info  TextBox13: 12 distinct texts, name agreement with computed values 99.98% | ambiguous texts: []
+info  TextBox37: 12 distinct texts, name agreement with computed values 99.92% | ambiguous texts: []
+info  TextBox40: 12 distinct texts, name agreement with computed values 98.38% | ambiguous texts: []
+info  TextBox42: 2 distinct texts, name agreement with computed values 100.00% | ambiguous texts: []
+info  TextBox43: 2 distinct texts, name agreement with computed values 100.00% | ambiguous texts: []
+info  TextBox44: 6 distinct texts, name agreement with computed values 100.00% | ambiguous texts: []
+info  end-time reproduction (n, median minutes, max minutes): {'tithi': (583, 0.05, 0.54), 'nak': (584, 0.047, 0.49), 'yoga': (595, 0.046, 0.44)}
+PASS tithi/nakshatra/yoga end times reproduce within 1 minute   mismatches: 0 
+RESULT: ALL CHECKS PASSED
