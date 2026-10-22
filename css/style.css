@@ -156,9 +156,9 @@ details.card:not([open]) > summary::after { content: '＋'; font-size: 17px; }
 .tabs button[aria-selected="true"] { color: #fffaf3; background: var(--accent); border-color: var(--accent); box-shadow: 0 4px 12px rgba(137, 57, 27, .16); }
 .tabs .pr-btn { margin-left: auto; color: var(--accent-strong); background: transparent; border-color: transparent; }
 body [data-t] { display: none; }
-body[data-tab="sum"] [data-t="sum"], body[data-tab="analysis"] [data-t="analysis"], body[data-tab="bphs"] [data-t="bphs"], body[data-tab="jaimini"] [data-t="jaimini"], body[data-tab="chart"] [data-t="chart"], body[data-tab="dasha"] [data-t="dasha"], body[data-tab="chakra"] [data-t="chakra"], body[data-tab="more"] [data-t="more"], body[data-tab="match"] [data-t="match"], body[data-tab="data"] [data-t="data"] { display: block; }
+body[data-tab="sum"] [data-t="sum"], body[data-tab="analysis"] [data-t="analysis"], body[data-tab="predict"] [data-t="predict"], body[data-tab="yoga"] [data-t="yoga"], body[data-tab="remedy"] [data-t="remedy"], body[data-tab="timing"] [data-t="timing"], body[data-tab="advanced"] [data-t="advanced"], body[data-tab="bphs"] [data-t="bphs"], body[data-tab="jaimini"] [data-t="jaimini"], body[data-tab="chart"] [data-t="chart"], body[data-tab="dasha"] [data-t="dasha"], body[data-tab="chakra"] [data-t="chakra"], body[data-tab="more"] [data-t="more"], body[data-tab="match"] [data-t="match"], body[data-tab="data"] [data-t="data"] { display: block; }
 #out > section { display: none; }
-body[data-tab="sum"] #out > [data-t="sum"], body[data-tab="analysis"] #out > [data-t="analysis"], body[data-tab="bphs"] #out > [data-t="bphs"], body[data-tab="jaimini"] #out > [data-t="jaimini"], body[data-tab="chart"] #out > [data-t="chart"], body[data-tab="dasha"] #out > [data-t="dasha"], body[data-tab="chakra"] #out > [data-t="chakra"], body[data-tab="more"] #out > [data-t="more"] { display: block; }
+body[data-tab="sum"] #out > [data-t="sum"], body[data-tab="analysis"] #out > [data-t="analysis"], body[data-tab="predict"] #out > [data-t="predict"], body[data-tab="yoga"] #out > [data-t="yoga"], body[data-tab="remedy"] #out > [data-t="remedy"], body[data-tab="timing"] #out > [data-t="timing"], body[data-tab="advanced"] #out > [data-t="advanced"], body[data-tab="bphs"] #out > [data-t="bphs"], body[data-tab="jaimini"] #out > [data-t="jaimini"], body[data-tab="chart"] #out > [data-t="chart"], body[data-tab="dasha"] #out > [data-t="dasha"], body[data-tab="chakra"] #out > [data-t="chakra"], body[data-tab="more"] #out > [data-t="more"] { display: block; }
 .hero { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px; }
 .hero div { min-width: 0; padding: 15px 15px 14px; background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--gold); border-radius: 14px; box-shadow: var(--shadow); }
 .hero div:first-child { border-top-color: var(--accent); }
@@ -528,3 +528,39 @@ td.w { min-width: 240px; font-size: 13px; }
   .pataki-diagram-wrap { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   details#fd { display: none; }
 }
+
+/* v18: predictions, yogas and remedies */
+#out section[data-t="predict"] .card, #out section[data-t="yoga"] .card, #out section[data-t="remedy"] .card { margin-top: 14px; }
+#out section[data-t="predict"] .card h2, #out section[data-t="yoga"] .card h2, #out section[data-t="remedy"] .card h2 { margin-top: 0; }
+#out section[data-t="predict"] .sc, #out section[data-t="remedy"] .sc { overflow-x: auto; }
+#out section[data-t="predict"] table, #out section[data-t="remedy"] table { min-width: 560px; }
+#out section[data-t="predict"] td.w, #out section[data-t="remedy"] td.w { min-width: 230px; }
+#out section[data-t="yoga"] h3 { margin: 18px 0 6px; font-size: 1.02rem; color: var(--accent-strong); }
+.px-y > summary, .px-a > summary, .px-p > summary { cursor: pointer; }
+.px-b, .px-rate { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .78rem; font-weight: 700; margin-right: 4px; }
+.px-good, .px-r3, .px-r4 { color: #27633a; background: #e4f1e5; }
+.px-bad, .px-r0 { color: #8a2c1d; background: #f9e3df; }
+.px-mixed, .px-r2 { color: #7a5a12; background: #f6ecd2; }
+.px-r1 { color: #8a4a12; background: #fbe6d0; }
+:root[data-theme="dark"] .px-good, :root[data-theme="dark"] .px-r3, :root[data-theme="dark"] .px-r4 { color: #b9e5c1; background: #24382a; }
+:root[data-theme="dark"] .px-bad, :root[data-theme="dark"] .px-r0 { color: #f3b8ae; background: #44241f; }
+:root[data-theme="dark"] .px-mixed, :root[data-theme="dark"] .px-r2 { color: #f2d49a; background: #3a3020; }
+:root[data-theme="dark"] .px-r1 { color: #f3c79a; background: #402c1c; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .px-good, :root:not([data-theme="light"]) .px-r3, :root:not([data-theme="light"]) .px-r4 { color: #b9e5c1; background: #24382a; }
+  :root:not([data-theme="light"]) .px-bad, :root:not([data-theme="light"]) .px-r0 { color: #f3b8ae; background: #44241f; }
+  :root:not([data-theme="light"]) .px-mixed, :root:not([data-theme="light"]) .px-r2 { color: #f2d49a; background: #3a3020; }
+  :root:not([data-theme="light"]) .px-r1 { color: #f3c79a; background: #402c1c; }
+}
+.px-t td:first-child { white-space: nowrap; font-weight: 600; }
+
+#out section[data-t="timing"] .card { margin-top: 14px; }
+#out section[data-t="timing"] .card h2 { margin-top: 0; }
+#out section[data-t="timing"] .sc { overflow-x: auto; }
+#out section[data-t="timing"] table { min-width: 560px; }
+.px-btn { padding: 9px 18px; border: 0; border-radius: 10px; background: var(--accent-strong, #8a3a1e); color: #fff; font-weight: 700; cursor: pointer; }
+
+#out section[data-t="advanced"] .card { margin-top: 14px; }
+#out section[data-t="advanced"] .card h2 { margin-top: 0; }
+#out section[data-t="advanced"] .sc { overflow-x: auto; }
+#out section[data-t="advanced"] table { min-width: 620px; }
