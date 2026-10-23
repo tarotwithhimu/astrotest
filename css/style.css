@@ -571,3 +571,31 @@ td.w { min-width: 240px; font-size: 13px; }
 }
 .milan-btn { display: inline-block; padding: 11px 22px; border-radius: 12px; background: var(--accent-strong, #8a3a1e); color: #fff; font-weight: 700; text-decoration: none; }
 .milan-btn.is-off { opacity: .55; cursor: not-allowed; }
+
+/* v18 fix: planet remedy tables and details stay inside their cards */
+#out section[data-t="remedy"] table.px-t { min-width: 0; width: 100%; table-layout: fixed; border-collapse: collapse; margin: 8px 0 4px; }
+.px-t th, .px-t td { word-break: break-word; overflow-wrap: anywhere; vertical-align: top; }
+.px-t th:nth-child(1), .px-t td:nth-child(1) { width: 22%; white-space: normal; }
+.px-t th:nth-child(3), .px-t td:nth-child(3) { width: 24%; color: var(--muted); font-size: .92em; }
+.px-p, .px-a, .px-y { padding: 6px 0; border-bottom: 1px solid var(--border); }
+.px-p > summary, .px-a > summary, .px-y > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; padding: 4px 0; }
+.px-p > p, .px-a > p, .px-y > p, .px-p > table { margin-left: 0; margin-right: 0; }
+#out section[data-t="remedy"] .card, #out section[data-t="predict"] .card, #out section[data-t="yoga"] .card, #out section[data-t="timing"] .card, #out section[data-t="advanced"] .card { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  #out section[data-t="remedy"] table.px-t, #out section[data-t="remedy"] table.px-t tbody, #out section[data-t="remedy"] table.px-t tr, #out section[data-t="remedy"] table.px-t td { display: block; width: 100% !important; }
+  #out section[data-t="remedy"] table.px-t tr:first-child { display: none; }
+  #out section[data-t="remedy"] table.px-t tr { border: 1px solid var(--border); border-radius: 10px; margin: 8px 0; padding: 6px 10px; background: var(--surface-soft); }
+  #out section[data-t="remedy"] table.px-t td { border: 0; padding: 2px 0; font-size: 13.5px; }
+  .px-t td:nth-child(1) { font-weight: 700; color: var(--accent-strong); }
+  .px-t td:nth-child(3) { font-size: 12px; }
+}
+.px-t td, .px-t th { white-space: normal !important; }
+@media (max-width: 760px) { #out section[data-t="remedy"] table.px-t tr, #out section[data-t="remedy"] table.px-t td { box-sizing: border-box; } }
+
+@media (max-width: 760px) {
+  #out section[data-t="remedy"] table.px-st, #out section[data-t="remedy"] table.px-st tbody, #out section[data-t="remedy"] table.px-st tr, #out section[data-t="remedy"] table.px-st td { display: block; width: 100%; min-width: 0 !important; box-sizing: border-box; }
+  #out section[data-t="remedy"] table.px-st tr:first-child { display: none; }
+  #out section[data-t="remedy"] table.px-st tr { border: 1px solid var(--border); border-radius: 10px; margin: 8px 0; padding: 6px 10px; background: var(--surface-soft); }
+  #out section[data-t="remedy"] table.px-st td { border: 0; padding: 3px 0; white-space: normal !important; overflow-wrap: anywhere; font-size: 13.5px; }
+  #out section[data-t="remedy"] table.px-st td::before { content: attr(data-l); display: block; font-size: 11px; font-weight: 700; letter-spacing: .02em; color: var(--muted); }
+}
