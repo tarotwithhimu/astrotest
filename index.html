@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Free Vedic kundli in Assamese, Bengali, Hindi and English with birth chart, dasha, panchang, matching, BPHS guide, Pataki vedha map, Ashtakavarga reductions and Jaimini tools.">
+  <meta name="description" content="Free Vedic kundli in Assamese, Bengali, Hindi and English with birth chart, dasha, panchang, matching, BPHS guide, Pataki vedha map, Ashtakavarga reductions.">
   <meta name="theme-color" content="#fbf8f2">
   <title>Jyotish Kundli</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='%23a94d27'%3E%3Cpath d='M18 4.5c2.9 4 3.1 7.4 0 10.2-3.1-2.8-2.9-6.2 0-10.2Z'/%3E%3Cpath d='M18 31.5c-2.9-4-3.1-7.4 0-10.2 3.1 2.8 2.9 6.2 0 10.2Z'/%3E%3Cpath d='M4.5 18c4-2.9 7.4-3.1 10.2 0-2.8 3.1-6.2 2.9-10.2 0Z'/%3E%3Cpath d='M31.5 18c-4 2.9-7.4 3.1-10.2 0 2.8-3.1 6.2-2.9 10.2 0Z'/%3E%3Ccircle cx='18' cy='18' r='3.1'/%3E%3C/svg%3E">
@@ -76,13 +76,14 @@
       <input id="pv" type="date" min="1930-01-01" max="2041-02-01" value="2020-09-13"><div id="po"></div>
     </section>
     <section class="card match-card" data-t="match">
-      <div class="section-heading"><span class="step">07</span><div><h2 data-i="Kundli matching (Ashtakoota)">Kundli matching (Ashtakoota)</h2></div></div>
-      <div class="f"><div><label for="dt2" data-i="Bride date & time of birth">Bride date &amp; time of birth</label><input id="dt2" type="datetime-local" value="1992-05-14T08:30"></div><div><label for="tz2" data-i="Bride UTC offset">Bride UTC offset</label><input id="tz2" type="number" step="0.25" value="5.5"></div></div>
-      <button id="mt" data-i="Match (chart above = groom)">Match (chart above = groom)</button><div id="mr" class="sc"></div>
+      <div class="section-heading"><span class="step">07</span><div><h2 data-i="Kundli Milan (matching)">Kundli Milan (matching)</h2></div></div>
+      <p id="milan-text" data-i="Kundli matching is available in our separate Kundli Milan app.">Kundli matching is available in our separate Kundli Milan app.</p>
+      <a id="milan-link" class="milan-btn" target="_blank" rel="noopener noreferrer" href="#" data-i="Open Kundli Milan app">Open Kundli Milan app</a>
     </section>
     <p class="footnote" data-i="Positions come from the supplied daily ephemeris table (1930-2061, cubic interpolation); outside that range compact formulas (about 0.1-0.5°) are used.">Positions come from the supplied daily ephemeris table (1930-2061, cubic interpolation); outside that range compact formulas (about 0.1-0.5&deg;) are used.</p>
   </main>
 
+  <script src="js/config.js?v=18"></script>
   <script src="js/i18n.js?v=18"></script>
   <script src="js/i18n-pataki.js?v=18"></script>
   <script src="js/i18n-new.js?v=18"></script>
@@ -96,7 +97,7 @@
   <script src="js/dasha.js?v=18"></script>
   <script src="js/ui.js?v=18"></script>
   <script src="js/bphs.js?v=18"></script>
-  <script src="js/jaimini.js?v=18"></script>
+  <script src="js/sudarshana.js?v=18"></script>
   <script src="js/predict.js?v=18"></script>
   <script src="js/bhavarules.js?v=18"></script>
   <script src="js/remedy.js?v=18"></script>
