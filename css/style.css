@@ -154,7 +154,7 @@ details.card:not([open]) > summary::after { content: '＋'; font-size: 17px; }
 .tabs::-webkit-scrollbar { display: none; }
 .tabs button { min-height: 40px; flex: 0 0 auto; margin: 0; padding: 7px 15px; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; font-size: 13px; font-weight: 600; }
 .tabs button[aria-selected="true"] { color: #fffaf3; background: var(--accent); border-color: var(--accent); box-shadow: 0 4px 12px rgba(137, 57, 27, .16); }
-.tabs .pr-btn { margin-left: auto; color: var(--accent-strong); background: transparent; border-color: transparent; }
+.tabs .pr-btn { margin-left: 4px; flex: 0 0 auto; color: var(--accent-strong); background: transparent; border-color: transparent; }
 body [data-t] { display: none; }
 body[data-tab="sum"] [data-t="sum"], body[data-tab="analysis"] [data-t="analysis"], body[data-tab="predict"] [data-t="predict"], body[data-tab="yoga"] [data-t="yoga"], body[data-tab="remedy"] [data-t="remedy"], body[data-tab="timing"] [data-t="timing"], body[data-tab="advanced"] [data-t="advanced"], body[data-tab="bphs"] [data-t="bphs"], body[data-tab="jaimini"] [data-t="jaimini"], body[data-tab="chart"] [data-t="chart"], body[data-tab="dasha"] [data-t="dasha"], body[data-tab="chakra"] [data-t="chakra"], body[data-tab="more"] [data-t="more"], body[data-tab="match"] [data-t="match"], body[data-tab="data"] [data-t="data"] { display: block; }
 #out > section { display: none; }
@@ -564,3 +564,10 @@ td.w { min-width: 240px; font-size: 13px; }
 #out section[data-t="advanced"] .card h2 { margin-top: 0; }
 #out section[data-t="advanced"] .sc { overflow-x: auto; }
 #out section[data-t="advanced"] table { min-width: 620px; }
+
+/* v18: print and Kundli Milan link */
+@media print {
+  #out > section[data-t="bphs"], #out > section[data-t="match"], body [data-t="bphs"], body [data-t="match"], .pr-btn { display: none !important; }
+}
+.milan-btn { display: inline-block; padding: 11px 22px; border-radius: 12px; background: var(--accent-strong, #8a3a1e); color: #fff; font-weight: 700; text-decoration: none; }
+.milan-btn.is-off { opacity: .55; cursor: not-allowed; }
